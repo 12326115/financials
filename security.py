@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+class Security:
+    def __init__(self, name):
+        self.name = name
+
+
 def calculateInterest(rate, time_in_years):
     return pow((1 + rate), time_in_years)
 
@@ -17,7 +22,7 @@ def calculateTime(interest, rate):
 
 def presentValueBasic(couponRate, face, timeToMaturity, discountRate, frequency=1):
     return (((face * couponRate / frequency) *
-            (1 - (1 + discountRate / frequency) ** (-timeToMaturity * frequency)) / (discountRate / frequency))
+             (1 - (1 + discountRate / frequency) ** (-timeToMaturity * frequency)) / (discountRate / frequency))
             + face * (1 + discountRate / frequency) ** (-timeToMaturity * frequency))
 
 
@@ -36,5 +41,3 @@ def generalSensitivity(toPeriod, toDiscountRate, couponRate, face=1000, fromPeri
 
     ax.plot_surface(X, Y, Z, cmap="Spectral")
     plt.show()
-
-

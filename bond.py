@@ -3,11 +3,13 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-from wertpapier import presentValueBasic
+from security import presentValueBasic
+from security import Security
 
 
-class Bond:
-    def __init__(self, couponRate, face, currentPrice, daysToMaturity, rating, frequency=1, transactionCosts=0):
+class Bond(Security):
+    def __init__(self, couponRate, face, currentPrice, daysToMaturity, rating, name, frequency=1, transactionCosts=0):
+        super().__init__(name)
         self.couponRate = couponRate
         self.face = face
         self.rating = rating
